@@ -1,0 +1,17 @@
+site_name: 財政革新会
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+markdown_extensions:
+  - attr_list
+  - md_in_html  # Optional: allows attributes on HTML elements
+  - pymdownx.superfences  # Optional: for advanced features
+nav:
+ - ようこそ: /
+ - ウェブ予算書: ./gov-budget-on-web
+ - 政府負担税の調査: ./taxed-gov
+ - ブログ: ./blog
+ - お問い合わせ: ./contact.md
