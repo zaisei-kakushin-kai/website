@@ -72,34 +72,34 @@
           <thead class="bg-gray-200 text-gray-700">
             <tr>
               <th class="border border-gray-300 px-3 py-2 text-left">項目</th>
+              <th class="border border-gray-300 px-3 py-2 text-right" hidden>金額</th>
               <th class="border border-gray-300 px-3 py-2 text-right">金額</th>
-              <th class="border border-gray-300 px-3 py-2 text-right">目安（漢数字）</th>
             </tr>
           </thead>
           <tbody class="bg-white">
             <tr>
               <td class="border border-gray-300 px-3 py-2">歳出額総額</td>
-              <td id="show-total" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
+              <td hidden id="show-total" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
               <td id="kanji-total" class="border border-gray-300 px-3 py-2 text-right text-gray-600">—</td>
             </tr>
             <tr>
               <td class="border border-gray-300 px-3 py-2">人件費</td>
-              <td id="show-personnel" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
+              <td hidden id="show-personnel" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
               <td id="kanji-personnel" class="border border-gray-300 px-3 py-2 text-right text-gray-600">—</td>
             </tr>
             <tr>
               <td class="border border-gray-300 px-3 py-2">公債費</td>
-              <td id="show-debt" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
+              <td hidden id="show-debt" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
               <td id="kanji-debt" class="border border-gray-300 px-3 py-2 text-right text-gray-600">—</td>
             </tr>
             <tr class="bg-gray-50 font-semibold">
-              <td class="border border-gray-300 px-3 py-2">政策的経費部分（歳出 − 人件費 − 公債費）</td>
-              <td id="policy" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
+              <td class="border border-gray-300 px-3 py-2">消費税課税対象額（概算）</td>
+              <td hidden id="policy" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
               <td id="kanji-policy" class="border border-gray-300 px-3 py-2 text-right text-gray-600">—</td>
             </tr>
             <tr class="bg-gray-100">
-              <td class="border border-gray-300 px-3 py-2">参考：税相当額（政策的経費 × (1 − 1/1.1)）</td>
-              <td id="alt" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
+              <td class="border border-gray-300 px-3 py-2">消費税負担額（概算）</td>
+              <td hidden id="alt" class="border border-gray-300 px-3 py-2 text-right font-bold">—</td>
               <td id="kanji-alt" class="border border-gray-300 px-3 py-2 text-right text-gray-600">—</td>
             </tr>
           </tbody>
