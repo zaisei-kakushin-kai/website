@@ -93,7 +93,22 @@
     </footer>
   </div>
 
-  <script>
+  <script>   
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const area = document.getElementById("form-area");
+      domtoimage.toPng(area);
+      const a = document.createElement("a");
+      a.download = "減税計画シート.png";
+      domtoimage
+        .toPng(area, {
+          bgcolor: "#ffffff",
+        })
+        .then((e) => {
+          a.href = e;
+          a.click();
+        });
+    });
+
     const fmtJPY = (n)=> isFinite(n) ? new Intl.NumberFormat('ja-JP', { style:'currency', currency:'JPY', maximumFractionDigits:0}).format(Math.floor(n)) : '—';
     const parseNum = (v)=> Number(String(v).replace(/[\,\s]/g,'').trim()) || 0;
 
