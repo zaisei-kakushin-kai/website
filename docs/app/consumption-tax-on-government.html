@@ -18,7 +18,7 @@
       </div>
     </header>
 
-    <section class="bg-gray-100 border border-gray-300 rounded-2xl p-5 shadow-sm" aria-labelledby="input-title">
+    <section class="mb-4 bg-gray-100 border border-gray-300 rounded-2xl p-5 shadow-sm" aria-labelledby="input-title">
       <h2 id="input-title" class="m-0 mb-3 text-lg font-semibold text-gray-800">入力</h2>
       <div class="overflow-x-auto">
         <table class="min-w-full border border-gray-300 text-sm bg-white">
@@ -59,7 +59,7 @@
       </div>
     </section>
 
-    <section id="result-area" class="mt-4 bg-gray-100 border border-gray-300 rounded-2xl p-5 shadow-sm" aria-labelledby="result-title">
+    <section id="result-area" class="bg-gray-100 border border-gray-300 rounded-2xl p-5 shadow-sm" aria-labelledby="result-title">
       <div class="flex items-center justify-between mb-3">
         <h2 id="result-title" class="m-0 text-lg font-semibold text-gray-800">結果</h2>
         <div class="text-sm text-gray-600"><span id="display-org">団体名：</span>／<span id="display-year">年度：</span></div>
@@ -114,9 +114,6 @@
       </section>
     </section>
 
-    <footer class="mt-6 text-gray-500 text-xs">
-      入力は端末上でのみ処理されます。小数点以下は切り捨てで円表示しています。
-    </footer>
   </div>
 
   <script>
@@ -202,9 +199,7 @@
       
       a.download = `${els.fiscalYear.value}年度-${els.org.value}の消費税負担額.png`
       domtoimage
-        .toPng(area, {
-          bgcolor: "#ffffff",
-        })
+        .toPng(area)
         .then((e) => {
           a.href = e;
           a.click();
