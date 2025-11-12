@@ -10,7 +10,7 @@ markdown_extensions:
   - md_in_html  # Optional: allows attributes on HTML elements
   - pymdownx.superfences  # Optional: for advanced features
 nav:
- - ようこそ: /
+ - ようこそ: ./
  - ウェブ予算書: ./gov-budget-on-web
  - 政府負担税の調査: ./taxed-gov
  - ブログ: ./blog
