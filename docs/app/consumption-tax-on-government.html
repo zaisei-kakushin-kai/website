@@ -61,8 +61,7 @@
 
     <section id="result-area" class="bg-gray-100 border border-gray-300 rounded-2xl p-5 shadow-sm" aria-labelledby="result-title">
       <div class="flex items-center justify-between mb-3">
-        <h2 id="result-title" class="m-0 text-lg font-semibold text-gray-800">結果</h2>
-        <div class="text-sm text-gray-600"><span id="display-org">団体名：</span>／<span id="display-year">年度：</span></div>
+        <h2 id="result-title" class="m-0 text-lg font-semibold text-gray-800"><span id="display-org">団体名：</span>／<span id="display-year">年度：</span></h2>
       </div>
 
       <div id="msg" class="text-xs text-gray-500 mb-3">数値を入力すると結果が表示されます。</div>
@@ -106,10 +105,9 @@
         </table>
       </div>
 
-      <p class="mt-3 text-xs text-gray-500">※ 上の「税相当額」は参考計算です。ご提示の式とは異なります。</p>
+      <p class="mt-3 text-xs text-gray-500">参考値です。</p>
 
       <section class="mt-3">
-        <h3 class="text-sm font-semibold text-gray-800">式の確認</h3>
         <p class="text-xs text-gray-600">計算式：<span class="font-mono bg-gray-50 border border-gray-300 px-2 py-1 rounded-md text-gray-800">(歳出額総額 − (人件費 + 公債費)) − (1 − (1 / 1.1))</span></p>
       </section>
     </section>
@@ -122,15 +120,33 @@
 
     const numToKanji = (num)=>{
       if (!isFinite(num) || num <= 0) return '—';
-      const units = ['', '万', '億', '兆'];
-      let result = '';
-      let unitIndex = 0;
-      while(num > 0 && unitIndex < units.length){
-        const part = num % 10000;
-        if(part > 0) result = part + units[unitIndex] + result;
-        num = Math.floor(num / 10000);
-        unitIndex++;
+
+      const floorNum = Math.floor(num);
+
+      const addKanjiFunction = (val, index) => {
+        switch(index) {
+          case 3: return val + '千';
+          case 4: return val + '万';
+          case 7: return val + '億';
+          case 10: return val + '兆';
+          default: return val;
+        }
       }
+
+      let result = floorNum.toString().split('').reverse().map(addKanjiFunction).reverse().join('')
+      
+      const choIndexOf = result.indexOf('兆');
+      const okuIndexOf = result.indexOf('億');
+      const manIndexOf = result.indexOf('万');
+
+      if (result.length > 16) {
+        result = result.slice(0, result.indexOf('兆')+1);
+      } else if (choIndexOf && okuIndexOf) {
+        result = result.slice(0, result.indexOf('億')+1);
+      } else if (okuIndexOf && manIndexOf) {
+        result = result.slice(0, result.indexOf('万')+1);
+      }
+      
       return result + '円';
     };
 
